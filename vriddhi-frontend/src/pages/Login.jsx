@@ -121,7 +121,7 @@ export default function Login() {
     <div className="login-page container section">
       <div className="auth-card card">
         <div className="auth-header">
-          <div className="logo-badge">V</div>
+          <img src="/logo.jpeg" alt="Vriddhi Logo" className="logo-badge" style={{ objectFit: 'cover' }} />
           <h2>Vriddhi Pathology Lab</h2>
           <p>Access your medical accounts, diagnostic records, and book home collections.</p>
         </div>

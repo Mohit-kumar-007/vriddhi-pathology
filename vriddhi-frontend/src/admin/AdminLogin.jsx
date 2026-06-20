@@ -43,7 +43,7 @@ export default function AdminLogin() {
     <div className="admin-login-page container section">
       <div className="login-card card">
         <div className="login-header">
-          <div className="logo-badge">V</div>
+          <img src="/logo.jpeg" alt="Vriddhi Logo" className="logo-badge" style={{ objectFit: 'cover' }} />
           <h2>Vriddhi Lab Portal</h2>
           <p>Please enter administrative credentials to access the management systems.</p>
         </div>

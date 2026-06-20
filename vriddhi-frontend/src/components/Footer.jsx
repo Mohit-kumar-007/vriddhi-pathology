@@ -10,9 +10,12 @@ export default function Footer() {
       <div className="footer-container container">
         {/* About Section */}
         <div className="footer-col">
-          <div className="footer-logo">
-            <span className="logo-title">VRIDDHI</span>
-            <span className="logo-subtitle">Pathology Laboratory</span>
+          <div className="footer-logo-wrapper">
+            <img src="/logo.jpeg" alt="Vriddhi Logo" className="footer-logo-img" />
+            <div className="footer-logo-text">
+              <span className="logo-title">VRIDDHI</span>
+              <span className="logo-subtitle">Pathology Laboratory</span>
+            </div>
           </div>
           <p className="footer-desc">
             Authorized CRL Collection Point. Delivering high-quality, accurate, and reliable pathology and diagnostic services to patients across Chandauli and surrounding areas.

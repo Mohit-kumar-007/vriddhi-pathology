@@ -23,6 +23,14 @@
   gap: 10px;
 }
 
+.logo-image {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--accent-gold);
+}
+
 .logo-circle {
   width: 42px;
   height: 42px;

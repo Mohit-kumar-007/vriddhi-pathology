@@ -51,7 +51,7 @@ export default function Navbar({ selectedCount = 0 }) {
     <nav className="navbar">
       <div className="navbar-container container">
         <Link to="/" className="nav-logo-wrapper" onClick={handleNavClick}>
-          <div className="logo-circle">V</div>
+          <img src="/logo.jpeg" alt="Vriddhi Logo" className="logo-image" />
           <div className="logo-text">
             <span className="logo-title">VRIDDHI</span>
             <span className="logo-subtitle">Pathology Laboratory</span>
