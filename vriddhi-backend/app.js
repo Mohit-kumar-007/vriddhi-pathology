@@ -6,15 +6,38 @@ const errorHandler = require('./src/middleware/errorHandler');
 const app = express();
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL || 'http://localhost:5173',
+  'http://localhost:5173',
+  'http://localhost:3000',
   'https://vriddhilab.vercel.app',
 ];
+
+const frontendUrls = process.env.FRONTEND_URL;
+if (frontendUrls) {
+  frontendUrls.split(',').forEach(url => {
+    const trimmed = url.trim();
+    if (trimmed) allowedOrigins.push(trimmed);
+  });
+}
 
 app.use(
   cors({
     origin: (origin, cb) => {
-      if (!origin || allowedOrigins.includes(origin)) cb(null, true);
-      else cb(new Error('Not allowed by CORS'));
+      // Allow requests with no origin (like mobile apps, curl, postman, or server-to-server)
+      if (!origin) {
+        return cb(null, true);
+      }
+      
+      // Check if origin is explicitly allowed
+      if (allowedOrigins.includes(origin)) {
+        return cb(null, true);
+      }
+      
+      // Allow Vercel preview deployments matching *.vercel.app
+      if (origin.endsWith('.vercel.app')) {
+        return cb(null, true);
+      }
+      
+      cb(new Error(`Origin ${origin} not allowed by CORS`));
     },
     credentials: true,
   })
