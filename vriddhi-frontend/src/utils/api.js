@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+let baseUrl = import.meta.env.VITE_API_BASE_URL || '/api';
+
+// Normalize URL: Auto-append '/api' if backend URL is provided without it
+if (baseUrl.startsWith('http') && !baseUrl.includes('/api')) {
+  baseUrl = baseUrl.replace(/\/$/, '') + '/api';
+}
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
+  baseURL: baseUrl,
   headers: {
     'Content-Type': 'application/json',
   },
