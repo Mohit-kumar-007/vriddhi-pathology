@@ -9,6 +9,8 @@ const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
   'https://vriddhilab.vercel.app',
+  'https://vriddhipathology.com',
+  'https://www.vriddhipathology.com',
 ];
 
 const frontendUrls = process.env.FRONTEND_URL;
