@@ -80,10 +80,33 @@ export default function useBookings(initialParams = {}, autoFetch = false) {
     }
   };
 
-  const setPage = (page) => setParams(prev => ({ ...prev, page }));
-  const setSearch = (search) => setParams(prev => ({ ...prev, search, page: 1 }));
-  const setStatus = (status) => setParams(prev => ({ ...prev, status, page: 1 }));
-  const setDateFilter = (startDate, endDate) => setParams(prev => ({ ...prev, startDate, endDate, page: 1 }));
+  const setPage = useCallback((page) => {
+    setParams(prev => {
+      if (prev.page === page) return prev;
+      return { ...prev, page };
+    });
+  }, []);
+
+  const setSearch = useCallback((search) => {
+    setParams(prev => {
+      if (prev.search === search) return prev;
+      return { ...prev, search, page: 1 };
+    });
+  }, []);
+
+  const setStatus = useCallback((status) => {
+    setParams(prev => {
+      if (prev.status === status) return prev;
+      return { ...prev, status, page: 1 };
+    });
+  }, []);
+
+  const setDateFilter = useCallback((startDate, endDate) => {
+    setParams(prev => {
+      if (prev.startDate === startDate && prev.endDate === endDate) return prev;
+      return { ...prev, startDate, endDate, page: 1 };
+    });
+  }, []);
 
   return {
     bookings,

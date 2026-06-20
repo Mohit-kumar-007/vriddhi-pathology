@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './SearchBar.css';
 
 export default function SearchBar({ onSearch, placeholder = "Search for blood tests, thyroid, lipid profile..." }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     const delayDebounce = setTimeout(() => {
       onSearch(searchTerm);
     }, 300);

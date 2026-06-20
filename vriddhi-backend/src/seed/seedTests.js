@@ -147,9 +147,11 @@ const tests = [
   { testCode: 'R001', testName: 'Chromosome Analysis - Blood', category: 'Other', sampleType: 'Blood', mrp: 3000, isFeatured: false },
 ];
 
-async function seedTests() {
-  await mongoose.connect(process.env.MONGO_URI);
-  console.log('✅ Connected to MongoDB');
+async function seedTests(shouldDisconnect = true) {
+  if (mongoose.connection.readyState === 0) {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('✅ Connected to MongoDB (Tests Seed)');
+  }
 
   let created = 0;
   let skipped = 0;
@@ -165,10 +167,17 @@ async function seedTests() {
   }
 
   console.log(`✅ Tests seeded: ${created} created, ${skipped} already existed`);
-  await mongoose.disconnect();
+  
+  if (shouldDisconnect) {
+    await mongoose.disconnect();
+  }
 }
 
-seedTests().catch((err) => {
-  console.error('❌ Seed error:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  seedTests().catch((err) => {
+    console.error('❌ Seed error:', err);
+    process.exit(1);
+  });
+}
+
+module.exports = seedTests;

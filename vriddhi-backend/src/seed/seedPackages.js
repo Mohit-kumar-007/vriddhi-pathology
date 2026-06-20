@@ -122,16 +122,25 @@ const packages = [
   },
 ];
 
-async function seedPackages() {
-  await mongoose.connect(process.env.MONGO_URI);
-  console.log('✅ Connected to MongoDB');
+async function seedPackages(shouldDisconnect = true) {
+  if (mongoose.connection.readyState === 0) {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('✅ Connected to MongoDB (Packages Seed)');
+  }
   await Package.deleteMany({});
   await Package.insertMany(packages);
   console.log(`✅ ${packages.length} packages seeded`);
-  await mongoose.disconnect();
+  
+  if (shouldDisconnect) {
+    await mongoose.disconnect();
+  }
 }
 
-seedPackages().catch((err) => {
-  console.error('❌ Seed error:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  seedPackages().catch((err) => {
+    console.error('❌ Seed error:', err);
+    process.exit(1);
+  });
+}
+
+module.exports = seedPackages;

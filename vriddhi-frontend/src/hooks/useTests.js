@@ -39,10 +39,33 @@ export default function useTests(initialParams = {}) {
     fetchTests();
   }, [fetchTests]);
 
-  const setPage = (page) => setParams(prev => ({ ...prev, page }));
-  const setSearch = (search) => setParams(prev => ({ ...prev, search, page: 1 }));
-  const setCategory = (category) => setParams(prev => ({ ...prev, category, page: 1 }));
-  const setFeatured = (featured) => setParams(prev => ({ ...prev, featured, page: 1 }));
+  const setPage = useCallback((page) => {
+    setParams(prev => {
+      if (prev.page === page) return prev;
+      return { ...prev, page };
+    });
+  }, []);
+
+  const setSearch = useCallback((search) => {
+    setParams(prev => {
+      if (prev.search === search) return prev;
+      return { ...prev, search, page: 1 };
+    });
+  }, []);
+
+  const setCategory = useCallback((category) => {
+    setParams(prev => {
+      if (prev.category === category) return prev;
+      return { ...prev, category, page: 1 };
+    });
+  }, []);
+
+  const setFeatured = useCallback((featured) => {
+    setParams(prev => {
+      if (prev.featured === featured) return prev;
+      return { ...prev, featured, page: 1 };
+    });
+  }, []);
 
   return { tests, loading, error, total, pages, params, setPage, setSearch, setCategory, setFeatured, refetch: fetchTests };
 }
