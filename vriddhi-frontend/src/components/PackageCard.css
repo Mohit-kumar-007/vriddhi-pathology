@@ -1,0 +1,119 @@
+.package-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+  justify-content: space-between;
+}
+
+.selected-package-card {
+  border-color: var(--primary-navy) !important;
+  background-color: #f0f7ff;
+}
+
+.package-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.badge-popular {
+  background-color: var(--accent-gold);
+  color: #fff;
+}
+
+.badge-value {
+  background-color: var(--secondary-green);
+  color: #fff;
+}
+
+.badge-allergy {
+  background-color: var(--accent-red);
+  color: #fff;
+}
+
+.package-header {
+  margin-bottom: 15px;
+  padding-right: 90px; /* Leave space for badge */
+}
+
+.package-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 4px;
+}
+
+.gender-tag {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+}
+
+.package-includes-wrapper {
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.includes-title {
+  font-size: 0.9rem;
+  color: var(--primary-navy);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.includes-list {
+  list-style: none;
+}
+
+.includes-item {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bullet {
+  color: var(--secondary-green);
+  font-weight: bold;
+}
+
+.includes-more {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.package-footer-wrapper {
+  border-top: 1px solid var(--border-color);
+  padding-top: 15px;
+}
+
+.pricing-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.discount-lbl {
+  background-color: rgba(192, 57, 43, 0.1);
+  color: var(--accent-red);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.package-actions {
+  display: flex;
+  gap: 8px;
+}

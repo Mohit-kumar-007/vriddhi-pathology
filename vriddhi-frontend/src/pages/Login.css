@@ -1,0 +1,138 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--body-bg);
+  min-height: 80vh;
+}
+
+.auth-card {
+  max-width: 600px;
+  width: 100%;
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header .logo-badge {
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-navy);
+  color: var(--accent-gold);
+  font-size: 1.8rem;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-full);
+  margin: 0 auto 1rem auto;
+  border: 2px solid var(--accent-gold);
+}
+
+.auth-header h2 {
+  font-family: var(--font-headings);
+  color: var(--primary-navy);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.auth-header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.auth-tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.auth-tab-btn:hover {
+  color: var(--primary-navy);
+}
+
+.auth-tab-btn.active {
+  color: var(--primary-navy);
+  border-bottom: 3px solid var(--accent-gold);
+  margin-bottom: -2px;
+}
+
+.tab-content {
+  animation: fadeIn 0.4s ease;
+}
+
+.auth-error-alert {
+  background-color: #fdf2f2;
+  border: 1px solid #f8b4b4;
+  color: #9b1c1c;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+/* Grid form for signup */
+.register-grid-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.register-grid-form .span-2 {
+  grid-column: span 2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .register-grid-form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .register-grid-form .span-2 {
+    grid-column: span 1;
+  }
+  .auth-card {
+    padding: 1.5rem;
+  }
+}

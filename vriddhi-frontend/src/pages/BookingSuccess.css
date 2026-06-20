@@ -1,0 +1,200 @@
+.booking-success-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-card {
+  max-width: 650px;
+  width: 100%;
+  padding: 40px;
+  align-items: center;
+  text-align: center;
+}
+
+.success-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(26, 107, 58, 0.1);
+  color: var(--secondary-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-title {
+  font-size: 2rem;
+  color: var(--primary-navy);
+  margin-bottom: 8px;
+}
+
+.success-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.booking-id-tag {
+  color: var(--primary-navy);
+  background-color: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 1.05rem;
+}
+
+/* WhatsApp alert block */
+.whatsapp-action-alert {
+  background-color: #fef2f2;
+  border: 2px solid var(--accent-red);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.whatsapp-action-alert h3 {
+  color: var(--accent-red);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.whatsapp-action-alert p {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.whatsapp-btn {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 10px rgba(26, 107, 58, 0.2);
+}
+
+/* Receipt Details */
+.booking-receipt-details {
+  background-color: var(--bg-off-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.booking-receipt-details h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.receipt-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 576px) {
+  .receipt-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.receipt-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.receipt-item .label, .receipt-address .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.receipt-item .value, .receipt-address .value {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.receipt-address {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.receipt-tests {
+  margin-top: 15px;
+}
+
+.receipt-tests h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin-bottom: 8px;
+}
+
+.receipt-tests-list {
+  list-style: none;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: #fff;
+}
+
+.receipt-test-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.85rem;
+}
+
+.receipt-test-item:last-child {
+  border-bottom: none;
+}
+
+.receipt-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 15px 0;
+}
+
+.receipt-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+.receipt-total strong {
+  font-size: 1.25rem;
+  color: var(--accent-red);
+}
+
+.success-footer-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
