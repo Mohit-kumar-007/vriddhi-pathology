@@ -8,7 +8,7 @@ import './Book.css';
 
 export default function Book({ selectedTests, onRemoveTest, onAddTest, onClearTests }) {
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const { user, isAuthenticated, loading: authLoading } = useContext(AuthContext);
   
   const [formData, setFormData] = useState({
     patientName: '',
@@ -196,6 +196,33 @@ export default function Book({ selectedTests, onRemoveTest, onAddTest, onClearTe
       setSubmitting(false);
     }
   };
+
+  if (authLoading) {
+    return <LoadingSpinner fullPage />;
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="book-page container section">
+        <div className="book-header">
+          <h1 className="page-title">Book Diagnostic Test</h1>
+          <p className="page-subtitle">Fill in the patient details and address for home collection. Your request will be verified instantly.</p>
+        </div>
+        <div className="login-required-state card" style={{ textAlign: 'center', padding: '40px', maxWidth: '550px', margin: '40px auto' }}>
+          <div className="required-icon" style={{ fontSize: '3rem', marginBottom: '20px' }}>🔒</div>
+          <h2>Authentication Required</h2>
+          <p style={{ margin: '15px 0 25px', color: 'var(--text-muted)' }}>
+            Before booking a slot or diagnostic test, you must log in or create a patient profile.
+          </p>
+          <div className="required-actions">
+            <button onClick={() => navigate('/login', { state: { from: { pathname: '/book' } } })} className="btn btn-gold">
+              Login / Create Profile ➡️
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Get current date string for min date picker constraint (today onwards)
   const todayStr = new Date().toISOString().split('T')[0];

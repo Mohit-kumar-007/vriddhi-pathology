@@ -21,6 +21,7 @@ export default function useTests(initialParams = {}) {
     setError(null);
     try {
       const response = await api.get('/tests', { params });
+      console.log(response.data);
       if (response.data.success) {
         setTests(response.data.data);
         setTotal(response.data.total);

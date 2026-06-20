@@ -104,6 +104,9 @@ export default function BookingSuccess() {
         </div>
 
         <div className="success-footer-actions">
+          <button onClick={() => window.print()} className="btn btn-secondary print-btn">
+            📥 Print / Save Receipt (PDF)
+          </button>
           <Link to="/" className="btn btn-outline">Back to Home Page</Link>
           <Link to="/tests" className="btn btn-primary">Browse Other Tests</Link>
         </div>

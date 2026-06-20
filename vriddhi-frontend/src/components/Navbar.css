@@ -159,6 +159,7 @@
   top: 45px;
   right: 0;
   width: 320px;
+  max-width: calc(100vw - 30px);
   background-color: #fff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -266,12 +267,12 @@
     background-color: var(--primary-navy);
     border-bottom: 3px solid var(--accent-gold);
     overflow: hidden;
-    height: 0;
-    transition: height var(--transition-normal);
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
   }
   
   .nav-menu-wrapper.open {
-    height: auto;
+    max-height: 500px;
     padding: 15px 0;
   }
   
